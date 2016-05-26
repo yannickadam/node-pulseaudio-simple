@@ -54,8 +54,6 @@ void CreateObject(const FunctionCallbackInfo<Value>& args) {
 
   Local<Object> obj = Object::New(isolate);
   obj->Set(String::NewFromUtf8(isolate, "msg"), args[0]->ToString());
-
-
 }*/
 
 void init(Handle<Object> exports, Handle<Object> module) {

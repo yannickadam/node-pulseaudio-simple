@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yannickadam/node-pulseaudio-simple/issues"
   },
-  "homepage": "https://github.com/yannickadam/node-pulseaudio-simple#readme"
+  "homepage": "https://github.com/yannickadam/node-pulseaudio-simple#readme",
+  "dependencies": {
+    "nan": "^2.3.3"
+  }
 }
