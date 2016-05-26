@@ -1,1 +1,1 @@
-module.exports = require('./build/Release/node-pulseaudio-simple');
+module.exports = require('./build/Release/npas');
