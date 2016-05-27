@@ -28,16 +28,16 @@ void Write(const FunctionCallbackInfo<Value>& args) {
 void Init(const FunctionCallbackInfo<Value>& args) {
 	Isolate* isolate = Isolate::GetCurrent();
 	HandleScope scope(isolate);
-
   Local<Object> obj = Object::New(isolate);
 
+  pa_sample_format_t sampleType = (pa_sample_format_t)args[0]->NumberValue();
+
 	pa_sample_spec	ss;
-	ss.format = PA_SAMPLE_S16LE;
+	ss.format = sampleType;
 	ss.channels = 2;
 	ss.rate = 44100;
 
 	int error;
-
 	s = pa_simple_new(NULL, "npas", PA_STREAM_PLAYBACK, NULL, "playback", &ss, NULL, NULL, &error);
 
   Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, Write);

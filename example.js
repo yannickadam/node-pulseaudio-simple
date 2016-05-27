@@ -2,7 +2,7 @@ var fs = require('fs');
 var npas = require("./index.js");
 
 
-var test = npas();
+var test = npas(3);
 
 fs.readFile("da.wav", function(err,data) {
     var blocks = Math.floor(data.length/2048);
