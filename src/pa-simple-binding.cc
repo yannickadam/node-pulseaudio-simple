@@ -13,11 +13,14 @@ pa_simple *s;
 void Write(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
 
-  //unsigned char *buffer = UnwrapPointer<unsigned char *>(info[1]);
-
+  // Sound data buffer
   v8::Local<v8::Value> tt = args[0];
   char *data = node::Buffer::Data(tt.As<v8::Object>());
-  pa_simple_write(s, data, 1024, NULL);
+
+  // Buffer Length
+  int size = (int)args[1]->NumberValue();
+
+  pa_simple_write(s, data, size, NULL);
 
   args.GetReturnValue().Set(String::NewFromUtf8(isolate, "hello world"));
 }
